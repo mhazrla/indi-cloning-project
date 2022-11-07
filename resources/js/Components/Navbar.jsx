@@ -1,3 +1,4 @@
+import { Link } from "@inertiajs/inertia-react";
 import { useState } from "react";
 
 function Navbar() {
@@ -9,9 +10,12 @@ function Navbar() {
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
                         <a href="javascript:void(0)">
-                            <h2 className="text-2xl font-bold text-white">
+                            <Link
+                                href={route("home")}
+                                className="text-2xl font-bold text-white"
+                            >
                                 MovieDB
-                            </h2>
+                            </Link>
                         </a>
                         <div className="md:hidden">
                             <button
@@ -59,13 +63,13 @@ function Navbar() {
                     >
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                             <li className="text-white hover:text-indigo-200">
-                                <a href="javascript:void(0)">Home</a>
+                                <Link href={route("home")}>Home</Link>
                             </li>
                             <li className="text-white hover:text-indigo-200">
-                                <a href="javascript:void(0)">Article</a>
+                                <Link href={route("article")}>Article</Link>
                             </li>
                             <li className="text-white hover:text-indigo-200">
-                                <a href="javascript:void(0)">Contact Us</a>
+                                <Link href={route("contact")}>Contact Us</Link>
                             </li>
                         </ul>
 

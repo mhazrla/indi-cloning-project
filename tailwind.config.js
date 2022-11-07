@@ -14,6 +14,9 @@ module.exports = {
             fontFamily: {
                 sans: ["Nunito", ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                tmdbDarkBlue: "rgb(3,37,65)",
+            },
         },
     },
 

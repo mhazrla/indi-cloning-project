@@ -6,14 +6,14 @@ import React from "react";
 
 function Homepage() {
     return (
-        <React.Fragment>
+        <div className="bg-white">
             <Navbar />
             <Banner />
             <Paginator />
 
             <MovieList />
             <Paginator />
-        </React.Fragment>
+        </div>
     );
 }
 

@@ -17,11 +17,15 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Homepage');
-});
+})->name('home');
 
 Route::get('/article', function () {
     return Inertia::render('Article');
-});
+})->name('article');
+
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+})->name('contact');
 
 Route::get('/contact', function () {
     return Inertia::render('Contactus');

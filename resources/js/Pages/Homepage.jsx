@@ -9,10 +9,8 @@ function Homepage() {
         <div className="bg-white">
             <Navbar />
             <Banner />
-            <Paginator />
 
             <MovieList />
-            <Paginator />
         </div>
     );
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,12 +25,12 @@ Route::get('/article', function () {
 })->name('article');
 
 Route::get('/contact', [ContactController::class, 'show'])->name('contact.index');
-Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.submit');
 Route::get('/contact/{contact}', [ContactController::class, 'show'])->name('contact.show');
 
-// Route::get('/contact', function () {
-//     return Inertia::render('Contactus');
-// })->name('contact');
+Route::get('/contact-us', function () {
+    return Inertia::render('Contactus');
+})->name('contact');
 
 // Route::get('/contact', function () {
 //     return Inertia::render('Contactus');

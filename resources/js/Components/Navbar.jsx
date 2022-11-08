@@ -63,45 +63,48 @@ function Navbar() {
                     >
                         <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                             <li className="text-white hover:text-indigo-200">
+
                                 <Link href={route("home")}>Home</Link>
+
                             </li>
                             <li className="text-white hover:text-indigo-200">
                                 <Link href={route("article")}>Article</Link>
                             </li>
                             <li className="text-white hover:text-indigo-200">
                                 <Link href={route("contact")}>Contact Us</Link>
+
                             </li>
                         </ul>
 
                         <div className="mt-3 space-y-2 lg:hidden md:inline-block">
-                            <a
-                                href="javascript:void(0)"
+                            <Link
+                                href={route("login")}
                                 className="inline-block w-full px-4 py-2 text-center  text-white  outline outline-offset-1 outline-1 outline-white-500 rounded-md shadow hover:bg-gray-800"
                             >
                                 Login
-                            </a>
-                            <a
-                                href="javascript:void(0)"
+                            </Link>
+                            <Link
+                                href={route("register")}
                                 className="inline-block w-full px-4 py-2 text-center text-red-600 bg-white rounded-md shadow hover:bg-gray-100"
                             >
                                 Register
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
                 <div className="hidden space-x-2 md:inline-block">
-                    <a
-                        href="javascript:void(0)"
+                    <Link
+                        href={route("login")}
                         className="px-4 py-2 text-white outline outline-offset-1 outline-1 outline-white-500 rounded-md shadow hover:bg-gray-800"
                     >
                         Login
-                    </a>
-                    <a
-                        href="javascript:void(0)"
+                    </Link>
+                    <Link
+                        href={route("register")}
                         className="px-4 py-2 text-red-600 bg-white rounded-md shadow hover:bg-gray-100"
                     >
                         Register
-                    </a>
+                    </Link>
                 </div>
             </div>
         </nav>

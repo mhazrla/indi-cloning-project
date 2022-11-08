@@ -47,7 +47,7 @@ class ContactController extends Controller
 
         Contact::create($validated);
 
-        return redirect()->back();
+        return redirect()->back(route('contact-us.contact'))->with('Succes');
     }
 
     /**

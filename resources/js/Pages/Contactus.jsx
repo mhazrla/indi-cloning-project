@@ -1,7 +1,21 @@
 import Navbar from "@/Components/Navbar";
+import { useForm, usePage } from "@inertiajs/inertia-react";
 import React from "react";
 
 export default function Contactus(props) {
+    const { data, setData, post, processing, reset, errors } = useForm({
+        name: "",
+        email: "",
+        message: "",
+    });
+
+    const { flash } = usePage().props;
+
+    const submit = (e) => {
+        e.preventDefault();
+        post(route("contact.submit"), { onSuccess: () => reset() });
+    };
+
     return (
         <div>
             <Navbar user={props.auth.user} />
@@ -19,84 +33,124 @@ export default function Contactus(props) {
                         </div>
                         <div className="lg:w-1/2 md:w-2/3 mx-auto">
                             <div className="flex flex-wrap -m-2">
-                                <div className="p-2 w-1/2">
-                                    <div className="relative">
-                                        <label
-                                            for="name"
-                                            className="leading-7 text-sm text-gray-600"
-                                        >
-                                            Name
-                                        </label>
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            name="name"
-                                            className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="p-2 w-1/2">
-                                    <div className="relative">
-                                        <label
-                                            for="email"
-                                            className="leading-7 text-sm text-gray-600"
-                                        >
-                                            Email
-                                        </label>
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                            className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="p-2 w-full">
-                                    <div className="relative">
-                                        <label
-                                            for="message"
-                                            className="leading-7 text-sm text-gray-600"
-                                        >
-                                            Message
-                                        </label>
-                                        <textarea
-                                            id="message"
-                                            name="message"
-                                            className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-                                        ></textarea>
-                                    </div>
-                                </div>
-                                <div className="p-2 w-full">
-                                    <button
-                                        className="flex mx-auto text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg"
-                                        type="submit"
-                                    >
-                                        Submit
-                                    </button>
-                                    {flash.success && (
-                                        <div className="alert alert-success shadow-lg">
-                                            <div>
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    className="stroke-current flex-shrink-0 h-6 w-6"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        strokeWidth="2"
-                                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                                    />
-                                                </svg>
-                                                <span>
-                                                    Your submit has been
-                                                    success!
-                                                </span>
-                                            </div>
+                                <form onSubmit={submit}>
+                                    <div className="p-2 w-1/2">
+                                        <div className="relative">
+                                            <label
+                                                for="name"
+                                                className="leading-7 text-sm text-gray-600"
+                                            >
+                                                Name
+                                            </label>
+                                            <input
+                                                value={data.name}
+                                                onChange={(e) =>
+                                                    setData(
+                                                        "name",
+                                                        e.target.value
+                                                    )
+                                                }
+                                                type="text"
+                                                id="name"
+                                                className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                            />
+                                            {errors.name ? (
+                                                <small className="text-red-500">
+                                                    {errors.name}
+                                                </small>
+                                            ) : (
+                                                ""
+                                            )}
                                         </div>
-                                    )}
-                                </div>
+                                    </div>
+                                    <div className="p-2 w-1/2">
+                                        <div className="relative">
+                                            <label
+                                                for="email"
+                                                className="leading-7 text-sm text-gray-600"
+                                            >
+                                                Email
+                                            </label>
+                                            <input
+                                                value={data.email}
+                                                onChange={(e) =>
+                                                    setData(
+                                                        "email",
+                                                        e.target.value
+                                                    )
+                                                }
+                                                type="email"
+                                                id="email"
+                                                className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                            />
+                                            {errors.email ? (
+                                                <small className="text-red-500">
+                                                    {errors.email}
+                                                </small>
+                                            ) : (
+                                                ""
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div className="p-2 w-full">
+                                        <div className="relative">
+                                            <label
+                                                for="message"
+                                                className="leading-7 text-sm text-gray-600"
+                                            >
+                                                Message
+                                            </label>
+                                            <textarea
+                                                value={data.message}
+                                                onChange={(e) =>
+                                                    setData(
+                                                        "message",
+                                                        e.target.value
+                                                    )
+                                                }
+                                                id="message"
+                                                className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                                            ></textarea>
+                                            {errors.message ? (
+                                                <small className="text-red-500">
+                                                    {errors.message}
+                                                </small>
+                                            ) : (
+                                                ""
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div className="p-2 w-full">
+                                        <button
+                                            className="flex mx-auto text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg"
+                                            type="submit"
+                                        >
+                                            {processing
+                                                ? "submiting"
+                                                : "submit"}
+                                        </button>
+                                        {flash.success && (
+                                            <div className="alert alert-success shadow-lg">
+                                                <div>
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        className="stroke-current flex-shrink-0 h-6 w-6"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth="2"
+                                                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                        />
+                                                    </svg>
+                                                    <span>{flash.success}</span>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </form>
                                 <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
                                     <a
                                         href="mailto:  MovieDB@gmail.com"

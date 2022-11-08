@@ -4,10 +4,10 @@ import Navbar from "@/Components/Navbar";
 import Paginator from "@/Components/Paginator";
 import React from "react";
 
-function Homepage() {
+function Homepage(props) {
     return (
         <div className="bg-white">
-            <Navbar />
+            <Navbar user={props.auth.user} />
             <Banner />
 
             <MovieList />

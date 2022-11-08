@@ -24,12 +24,12 @@ Route::get('/article', function () {
 })->name('article');
 
 Route::get('/contact', function () {
-    return Inertia::render('Contact');
+    return Inertia::render('Contactus');
 })->name('contact');
 
-Route::get('/contact', function () {
-    return Inertia::render('Contactus');
-});
+// Route::get('/contact', function () {
+//     return Inertia::render('Contactus');
+// });
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [

@@ -1,10 +1,10 @@
 import Navbar from "@/Components/Navbar";
 import React from "react";
 
-export default function Contactus() {
+export default function Contactus(props) {
     return (
         <div>
-            <Navbar />
+            <Navbar user={props.auth.user} />
             <section className="font-sans text-gray-700 body-font relative bg-cover bg-center bg-no-repeat">
                 <div className="container px-5 py-8 mx-auto">
                     <div className="Card-body pt-5 pb-5 bg-white rounded-lg border border-gray-200 shadow-md  dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
@@ -67,7 +67,10 @@ export default function Contactus() {
                                     </div>
                                 </div>
                                 <div className="p-2 w-full">
-                                    <button className="flex mx-auto text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">
+                                    <button
+                                        className="flex mx-auto text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg"
+                                        type="submit"
+                                    >
                                         Submit
                                     </button>
                                 </div>

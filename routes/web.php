@@ -23,9 +23,13 @@ Route::get('/article', function () {
     return Inertia::render('Article');
 })->name('article');
 
-Route::get('/contact', function () {
-    return Inertia::render('Contactus');
-})->name('contact');
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+Route::get('/contact/{contact}', [ContactController::class, 'show'])->name('contact.show');
+
+// Route::get('/contact', function () {
+//     return Inertia::render('Contactus');
+// })->name('contact');
 
 // Route::get('/contact', function () {
 //     return Inertia::render('Contactus');

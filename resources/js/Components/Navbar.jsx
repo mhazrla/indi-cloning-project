@@ -73,7 +73,7 @@ function Navbar({ user }) {
                             </li>
                         </ul>
 
-                        <div className="mt-3 space-y-2 lg:hidden md:inline-block">
+                        <div className="mt-3 space-y-2 md:hidden sm:inline-block ">
                             {!user ? (
                                 <>
                                     <Link
@@ -106,13 +106,13 @@ function Navbar({ user }) {
                         <>
                             <Link
                                 href={route("login")}
-                                className="inline-block w-full px-4 py-2 text-center  text-white  outline outline-offset-1 outline-1 outline-white-500 rounded-md shadow hover:bg-gray-800"
+                                className="w-full px-4 py-2 text-center  text-white  outline outline-offset-1 outline-1 outline-white-500 rounded-md shadow hover:bg-gray-800"
                             >
                                 Login
                             </Link>
                             <Link
                                 href={route("register")}
-                                className="inline-block w-full px-4 py-2 text-center text-red-600 bg-white rounded-md shadow hover:bg-gray-100"
+                                className="w-full px-4 py-2 text-center text-red-600 bg-white rounded-md shadow hover:bg-gray-100"
                             >
                                 Register
                             </Link>
@@ -121,7 +121,7 @@ function Navbar({ user }) {
                         <Link
                             href={route("logout")}
                             method="POST"
-                            className="inline-block w-full px-4 py-2 text-center  text-white  outline outline-offset-1 outline-1 outline-white-500 rounded-md shadow hover:bg-gray-800"
+                            className="w-full px-4 py-2 text-center  text-white  outline outline-offset-1 outline-1 outline-white-500 rounded-md shadow hover:bg-gray-800"
                         >
                             Logout
                         </Link>

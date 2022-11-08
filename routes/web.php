@@ -15,7 +15,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return Inertia::render('Homepage');
 });
 
@@ -27,14 +27,14 @@ Route::get('/contact', function () {
     return Inertia::render('Contactus');
 });
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

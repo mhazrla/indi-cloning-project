@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ContactCreated;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 
@@ -45,9 +46,11 @@ class ContactController extends Controller
             'message' => ['required'],
         ]);
 
-        Contact::create($validated);
+        $contact = Contact::create($validated);
 
-        return redirect()->back()->with('success', 'suces!');
+        ContactCreated::dispatch($contact);
+
+        return redirect()->back()->with('success', 'Send Success!');
     }
 
     /**

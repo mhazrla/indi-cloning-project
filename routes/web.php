@@ -29,7 +29,7 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.subm
 Route::get('/contact/{contact}', [ContactController::class, 'show'])->name('contact.show');
 
 Route::get('/contact-us', function () {
-    return Inertia::render('Contactus');
+    return Inertia::render('ContactUs');
 })->name('contact');
 
 // Route::get('/contact', function () {

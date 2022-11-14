@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Events\ContactCreated;
+use App\Http\Resources\ContactsCollection;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ContactController extends Controller
 {
@@ -15,12 +17,13 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::get();
+        $contacts = new ContactsCollection(Contact::paginate(8));
 
-        inertia('Contact/Index', [
+        return Inertia::render('Contact/Index', [
             'contacts' => $contacts
         ]);
     }
+
 
     /**
      * Show the form for creating a new resource.

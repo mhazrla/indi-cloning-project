@@ -24,13 +24,18 @@ Route::get('/article', function () {
     return Inertia::render('Article');
 })->name('article');
 
-Route::get('/contact', [ContactController::class, 'show'])->name('contact.index');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.submit');
 Route::get('/contact/{contact}', [ContactController::class, 'show'])->name('contact.show');
 
 Route::get('/contact-us', function () {
     return Inertia::render('ContactUs');
 })->name('contact');
+
+Route::get('/contact-us-data', function () {
+    return Inertia::render('ShowContactUs');
+})->name('contact-data');
+
 
 // Route::get('/contact', function () {
 //     return Inertia::render('Contactus');

@@ -1,4 +1,5 @@
 import Banner from "@/Components/Banner";
+import Footer from "@/Components/Footer";
 import MovieList from "@/Components/Movie/MovieList";
 import Navbar from "@/Components/Navbar";
 import Paginator from "@/Components/Paginator";
@@ -11,6 +12,7 @@ function Homepage(props) {
             <Banner />
 
             <MovieList />
+            <Footer />
         </div>
     );
 }

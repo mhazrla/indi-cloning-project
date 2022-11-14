@@ -118,6 +118,13 @@ function Navbar({ user }) {
                             </Link>
                         </>
                     ) : (
+                        <>
+                        <Link
+                            href={route("dashboard")}
+                            className="w-full px-4 py-2 text-center  text-white  outline outline-offset-1 outline-1 outline-white-500 rounded-md shadow hover:bg-gray-800"
+                        >
+                            Dashboard
+                        </Link>
                         <Link
                             href={route("logout")}
                             method="POST"
@@ -125,6 +132,7 @@ function Navbar({ user }) {
                         >
                             Logout
                         </Link>
+                        </>
                     )}
                 </div>
             </div>

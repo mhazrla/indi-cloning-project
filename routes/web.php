@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\ContactController;
+
 use App\Http\Controllers\ArticleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -28,12 +29,9 @@ Route::prefix('/article')->controller(ArticleController::class)->group(function 
 });
 
 
-Route::get('/contact', [ContactController::class, 'show'])->name('contact.index');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.submit');
-Route::get('/contact/{contact}', [ContactController::class, 'show'])->name('contact.show');
 
-Route::get('/contact-us', function () {
-    return Inertia::render('ContactUs');
+Route::get('/contact', function () {
+    return Inertia::render('Contactus');
 })->name('contact');
 
 Route::prefix('dashboard')->controller(ArticleController::class)->middleware(['auth', 'verified'])->group(function () {

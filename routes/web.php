@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -19,29 +20,23 @@ Route::get('/', function () {
     return Inertia::render('Homepage');
 })->name('home');
 
-Route::get('/article', function () {
-    return Inertia::render('Article');
-})->name('article');
+Route::prefix('/article')->controller(ArticleController::class)->group(function () {
+    Route::get('/', 'index')->name('article');
+    Route::get('/detail/{article}', 'show')->name('article.show');
+});
+
 
 Route::get('/contact', function () {
     return Inertia::render('Contactus');
 })->name('contact');
 
-// Route::get('/contact', function () {
-//     return Inertia::render('Contactus');
-// });
-
-// Route::get('/', function () {
-//     return Inertia::render('Welcome', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::prefix('dashboard')->controller(ArticleController::class)->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/', 'dashboard')->name('dashboard');
+    Route::get('/create', 'create')->name('dashboard.create');
+    Route::post('/store', 'store')->name('dashboard.store');
+    Route::get('/edit/{article}', 'edit')->name('dashboard.edit');
+    Route::patch('{article}', 'update')->name('dashboard.update');
+    Route::delete('{article}', 'destroy')->name('dashboard.destroy');
+});
 
 require __DIR__ . '/auth.php';

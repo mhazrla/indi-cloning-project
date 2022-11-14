@@ -28,6 +28,7 @@ const MovieList = () => {
 
     return (
         <>
+                <Paginator />
             <div className="md:grid md:grid-cols-2 lg:grid-cols-5 auto-rows-max md:gap-1 bg-gray-100">
                 {movies.map((movie, i) => {
                     return <MovieCard key={i} {...movie} />;

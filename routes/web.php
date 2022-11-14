@@ -1,5 +1,8 @@
 <?php
 
+
+use App\Http\Controllers\ContactController;
+
 use App\Http\Controllers\ArticleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +27,7 @@ Route::prefix('/article')->controller(ArticleController::class)->group(function 
     Route::get('/', 'index')->name('article');
     Route::get('/detail/{article}', 'show')->name('article.show');
 });
+
 
 
 Route::get('/contact', function () {

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
-import tmdb from "@/src/tmdb";
 import Paginator from "../Paginator";
 
 const MovieList = () => {
@@ -13,7 +12,6 @@ const MovieList = () => {
             )
             .then((res) => {
                 setMovies(res.data.results);
-                console.log(movies);
             })
             .catch((err) => {
                 console.log(err);
@@ -25,10 +23,9 @@ const MovieList = () => {
         // };
         // fetchMovies();
     }, []);
-
     return (
         <>
-                <Paginator />
+            <Paginator />
             <div className="md:grid md:grid-cols-2 lg:grid-cols-5 auto-rows-max md:gap-1 bg-gray-100">
                 {movies.map((movie, i) => {
                     return <MovieCard key={i} {...movie} />;

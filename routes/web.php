@@ -29,7 +29,6 @@ Route::prefix('/article')->controller(ArticleController::class)->group(function 
 });
 
 
-
 Route::get('/contact', function () {
     return Inertia::render('Contactus');
 })->name('contact');

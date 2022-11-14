@@ -64,7 +64,7 @@ const isArticle = ({ id, title, year, user_id, created_at, tags, content }) => {
                                     key={tag.id}
                                     className="m-1 px-2 py-1 rounded bg-green-500"
                                 >
-                                    {tag.name}
+                                    #{tag.name}
                                 </a>
                             );
                         })}

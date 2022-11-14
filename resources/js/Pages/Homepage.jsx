@@ -10,7 +10,6 @@ function Homepage(props) {
         <div className="bg-white">
             <Navbar user={props.auth.user} />
             <Banner />
-
             <MovieList />
             <Footer />
         </div>
